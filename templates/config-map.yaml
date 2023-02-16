@@ -1,0 +1,7 @@
+#build a config map for helm
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "nginx-helm-chart.fullname" . }}
+data:
+  index.html: {{ toYaml .Values.configmap.html | nindent 4 }}
